@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "create-block/invp-attribute-table",
+	"version": "1.0.0",
+	"title": "Vehicle Attribute Table",
+	"category": "inventory-presser",
+	"icon": "admin-network",
+	"description": "Lists vehicle attributes like odometer, fuel type, color, and body style.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "invp-attribute-table",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

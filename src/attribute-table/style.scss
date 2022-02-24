@@ -1,0 +1,23 @@
+.attribute-table {
+	display: table;
+	margin-bottom: .5em;
+}
+
+.attribute-table .item {
+	display: table-row;
+}
+
+.attribute-table .item > div {
+	display: table-cell;
+	padding: 0 0 8px;
+}
+
+.attribute-table .item .label {
+	text-transform: uppercase;
+	font-size: 80%;
+	vertical-align: center;
+}
+
+.attribute-table .item div + div {
+	padding-left: 12px;
+}
