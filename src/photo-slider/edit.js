@@ -122,7 +122,9 @@ export default function Edit( { attributes, setAttributes } ) {
 
 			}
 
-			return <p class="wp-block">{ `Loading photo slider...` }</p>;
+			return <>
+					<h2 class="wp-block">{ `Photo Slider` }</h2><p class="wp-block">{ `Loading photos...` }</p>
+					</>;
 		}	
 	);
 
