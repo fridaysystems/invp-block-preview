@@ -1,1 +1,0 @@
-{"version":3,"file":"photo-slider/index.css","mappings":";;;AAAA;EACC;AACD,C","sources":["webpack://invp-block-boilerplate/./src/photo-slider/editor.scss"],"sourcesContent":[".wp-block-create-block-invp-photo-slider{\n\tpadding: 8px;\n}"],"names":[],"sourceRoot":""}
