@@ -20,12 +20,91 @@
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function create_block_invp_block_boilerplate_block_init() {
+function invp_create_blocks() {
 	register_block_type( __DIR__ . '/build/attribute-table', array(
 		'render_callback' => 'invp_block_attribute_table_get_html',
 	) );
+
+	register_block_type( __DIR__ . '/build/photo-slider', array(
+		'render_callback' => 'invp_block_photo_slider_get_html',
+	) );
 }
-add_action( 'init', 'create_block_invp_block_boilerplate_block_init' );
+add_action( 'init', 'invp_create_blocks' );
+
+function invp_block_register_scripts()
+{
+	wp_register_script( 
+		'invp-flexslider-block',
+		plugins_url( '/src/photo-slider/photo-slider.min.js', __FILE__ ),
+		array( 'jquery', 'invp-flexslider' ),
+		false,
+		true
+	);
+}
+add_action( 'wp_enqueue_scripts', 'invp_block_register_scripts' );
+add_action( 'enqueue_block_editor_assets', 'invp_block_register_scripts' );
+
+function invp_block_photo_slider_get_html( $attributes )
+{
+	wp_enqueue_style( 'flexslider' );
+	wp_enqueue_script( 'invp-flexslider-block' );
+
+	$image_url_lists = invp_get_the_photos( array( 'large', 'thumb' ) );
+	if( empty( $image_url_lists ) )
+	{
+		return;
+	}
+
+	ob_start();
+
+	?><div class="vehicle-images wp-block">
+		<div class="slider-width"></div>
+		<div class="slider invp-flexslider">
+			<ul class="slides"><?php
+
+				if ( isset( $image_url_lists['large'] ) )
+				{
+					for( $p=0; $p<sizeof( $image_url_lists['large'] ); $p++ )
+					{
+						//Inventory Presser versions 8.1.0 and above provide the 'urls'
+						if( isset( $image_url_lists['urls'][$p] ) )
+						{
+							printf(
+								'<li><a href="%s">%s</a></li>',
+								$image_url_lists['urls'][$p],
+								$image_url_lists['large'][$p]
+							);
+						}
+						else
+						{
+								printf(
+								'<li>%s</li>',
+								$image_url_lists['large'][$p]
+							);
+						}
+					}
+				}
+			?></ul>
+		</div><?php
+
+		if ( isset( $image_url_lists['thumb'] ) && count($image_url_lists['thumb']) > 1)
+		{
+			?><div class="invp-flexslider-thumbs invp-flexslider no-preview">
+			<ul class="slides"><?php
+
+				foreach( $image_url_lists['thumb'] as $image )
+				{
+					printf( '<li>%s</li>', $image );
+				}
+
+			?></ul>
+		</div><?php
+
+		}
+	?></div><?php
+
+	return ob_get_clean();
+}
 
 function invp_block_attribute_table_get_html( $attributes )
 {
