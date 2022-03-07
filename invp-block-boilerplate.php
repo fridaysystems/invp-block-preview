@@ -25,11 +25,28 @@ function invp_create_blocks() {
 		'render_callback' => 'invp_block_attribute_table_get_html',
 	) );
 
+	register_block_type( __DIR__ . '/build/options-list', array(
+		'render_callback' => 'invp_block_options_list_get_html',
+	) );
+
 	register_block_type( __DIR__ . '/build/photo-slider', array(
 		'render_callback' => 'invp_block_photo_slider_get_html',
 	) );
 }
 add_action( 'init', 'invp_create_blocks' );
+
+function invp_block_options_list_get_html( $attributes )
+{
+	$html = '<ul class="vehicle-features">';
+
+	// loop through list of vehicle options
+	foreach( invp_get_the_options() as $option )
+	{
+		$html .= sprintf( '<li>%s</li>', $option );
+	}
+
+	return $html . '</ul>';
+}
 
 function invp_block_register_scripts()
 {
