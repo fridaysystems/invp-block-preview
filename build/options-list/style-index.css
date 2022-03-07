@@ -1,1 +1,1 @@
-.options-list{display:table;margin-bottom:.5em}.options-list .item{display:table-row}.options-list .item>div{display:table-cell;padding:0 0 8px}.options-list .item .label{font-size:80%;text-transform:uppercase;vertical-align:center}.options-list .item div+div{padding-left:12px}
+ul.vehicle-features{-moz-columns:3;column-count:3;-moz-column-gap:1em;column-gap:1em;list-style-position:inside}ul.vehicle-features li{-moz-column-break-inside:avoid;break-inside:avoid;overflow:hidden}

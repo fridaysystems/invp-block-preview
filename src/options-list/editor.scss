@@ -1,3 +1,9 @@
-.wp-block-create-block-invp-options-list{
-	padding: 8px;
+ul.vehicle-features {
+	list-style-position: inside;
+	columns: 3;
+	column-gap: 1em;
+}
+ul.vehicle-features li {
+	overflow: hidden;
+	break-inside:avoid;
 }

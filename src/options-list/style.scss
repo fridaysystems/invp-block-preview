@@ -1,23 +1,9 @@
-.options-list {
-	display: table;
-	margin-bottom: .5em;
+ul.vehicle-features {
+	list-style-position: inside;
+	columns: 3;
+	column-gap: 1em;
 }
-
-.options-list .item {
-	display: table-row;
-}
-
-.options-list .item > div {
-	display: table-cell;
-	padding: 0 0 8px;
-}
-
-.options-list .item .label {
-	text-transform: uppercase;
-	font-size: 80%;
-	vertical-align: center;
-}
-
-.options-list .item div + div {
-	padding-left: 12px;
+ul.vehicle-features li {
+	overflow: hidden;
+	break-inside:avoid;
 }
