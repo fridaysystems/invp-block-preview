@@ -43,21 +43,20 @@ export default function Edit( { attributes, setAttributes } ) {
 		( select ) => select( 'core/editor' ).getCurrentPostType(),
 		[]
 	);
-	const [ meta, setMeta ] = useEntityProp( 'postType', postType, 'meta' );
+	const [ meta ] = useEntityProp( 'postType', postType, 'meta' );
 
 	const optionsItems = [];
 	meta[ 'inventory_presser_options_array' ].forEach( element => {
 		optionsItems.push( <li>{ element }</li> );
 	});
 
-	const OptionsListControl = () => {
-		return <ul class="vehicle-features wp-block">{ optionsItems }</ul>;
-	}
-
 	return (
-		<div { ...blockProps }>
+		<>
 			<BlockControls></BlockControls>
-			<OptionsListControl></OptionsListControl>
-		</div>
+			<ul 
+				{ ...blockProps }
+				className={ `vehicle-features wp-block`}
+			>{ optionsItems }</ul>
+		</>
 	);
 }

@@ -6,7 +6,7 @@
 	"title": "Options List",
 	"category": "inventory-presser",
 	"icon": "admin-network",
-	"description": "List standard, optional, and aftermarket vehicle equipment",
+	"description": "Lists standard, optional, and aftermarket vehicle equipment",
 	"supports": {
 		"html": false
 	},

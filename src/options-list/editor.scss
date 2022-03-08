@@ -1,9 +1,7 @@
 ul.vehicle-features {
-	list-style-position: inside;
 	columns: 3;
 	column-gap: 1em;
 }
 ul.vehicle-features li {
-	overflow: hidden;
-	break-inside:avoid;
+	break-inside: avoid;
 }
