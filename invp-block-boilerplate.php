@@ -307,5 +307,5 @@ function invp_block_attribute_table_get_html( $attributes )
 		$html = '<div class="attribute-table">' . $html . '</div>';
 	}
 
-	return apply_filters( 'invp_vehicle_attribute_table', $html );
+	return apply_filters( 'invp_block_attribute_table', $html );
 }
