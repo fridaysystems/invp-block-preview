@@ -25,6 +25,10 @@ function invp_create_blocks() {
 		'render_callback' => 'invp_block_attribute_table_get_html',
 	) );
 
+	register_block_type( __DIR__ . '/build/description', array(
+		'render_callback' => 'invp_block_description_get_html',
+	) );
+
 	register_block_type( __DIR__ . '/build/options-list', array(
 		'render_callback' => 'invp_block_options_list_get_html',
 	) );
@@ -34,6 +38,19 @@ function invp_create_blocks() {
 	) );
 }
 add_action( 'init', 'invp_create_blocks' );
+
+function invp_block_description_get_html( $attributes )
+{
+	$description = invp_get_the_description();
+	if( empty( $description ) )
+	{
+		return '';
+	}
+	return apply_filters( 'invp_block_description', sprintf( 
+		'<div class="vehicle-content-wrap">%s</div>', 
+		invp_get_the_description()
+	) );
+}
 
 function invp_block_options_list_get_html( $attributes )
 {

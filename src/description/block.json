@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "create-block/invp-description",
+	"version": "1.0.0",
+	"title": "Vehicle Description",
+	"category": "inventory-presser",
+	"icon": "admin-network",
+	"description": "Rich text describing the vehicle",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "invp-description",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
