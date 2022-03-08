@@ -91,7 +91,7 @@ function invp_block_photo_slider_get_html( $attributes )
 	$image_url_lists = invp_get_the_photos( array( 'large', 'thumb' ) );
 	if( empty( $image_url_lists ) )
 	{
-		return;
+		return '';
 	}
 
 	ob_start();
