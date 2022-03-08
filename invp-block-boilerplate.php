@@ -54,15 +54,20 @@ function invp_block_description_get_html( $attributes )
 
 function invp_block_options_list_get_html( $attributes )
 {
+	$options_array = invp_get_the_options();
+	if( empty( $options_array ) )
+	{
+		return '';
+	}
 	$html = '<ul class="vehicle-features">';
 
 	// loop through list of vehicle options
-	foreach( invp_get_the_options() as $option )
+	foreach( $options_array as $option )
 	{
 		$html .= sprintf( '<li>%s</li>', $option );
 	}
 
-	return $html . '</ul>';
+	return apply_filters( 'invp_block_options_list', $html . '</ul>' );
 }
 
 function invp_block_register_scripts()
