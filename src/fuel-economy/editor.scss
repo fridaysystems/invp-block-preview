@@ -1,0 +1,34 @@
+.fuel-economy-annual-stats .components-base-control{
+	display: inline-block;
+}
+.fuel-economy-annual-stats input.components-text-control__input{
+	font-size: 18px;
+}
+
+.fuel-economy-combined input.components-text-control__input{
+	font-weight: bold;
+	text-align: center;
+	font-size: 450%;
+	line-height: 95%;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	padding: 0;
+}
+.fuel-economy-city input.components-text-control__input,
+.fuel-economy-highway input.components-text-control__input{
+	font-weight: bold;
+	font-size: 27px;
+	text-align: center;
+	position: relative;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	padding: 0;
+}
+
+.fuel-economy-combined .components-base-control__field,
+.fuel-economy-city .components-base-control__field,
+.fuel-economy-highway .components-base-control__field{
+	margin: 0;
+}
