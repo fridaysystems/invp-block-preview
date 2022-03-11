@@ -25,6 +25,10 @@ function invp_create_blocks() {
 		'render_callback' => 'invp_block_attribute_table_get_html',
 	) );
 
+	register_block_type( __DIR__ . '/build/carfax-button', array(
+		'render_callback' => 'invp_block_carfax_button_get_html',
+	) );
+
 	register_block_type( __DIR__ . '/build/description', array(
 		'render_callback' => 'invp_block_description_get_html',
 	) );
@@ -38,6 +42,12 @@ function invp_create_blocks() {
 	) );
 }
 add_action( 'init', 'invp_create_blocks' );
+
+function invp_block_carfax_button_get_html( $attributes )
+{
+	//TODO short circuit if not use_carfax
+	return apply_filters( 'invp_block_carfax_button', invp_get_the_carfax_icon_html() );
+}
 
 function invp_block_description_get_html( $attributes )
 {
