@@ -45,7 +45,17 @@ add_action( 'init', 'invp_create_blocks' );
 
 function invp_block_carfax_button_get_html( $attributes )
 {
-	//TODO short circuit if not use_carfax
+	if( ! class_exists( 'INVP' ) )
+	{
+		return '';
+	}
+
+	$invp_settings = INVP::settings();
+	if( empty( $invp_settings['use_carfax'] ) || ! $invp_settings['use_carfax'] )
+	{
+		return '';
+	}
+
 	return apply_filters( 'invp_block_carfax_button', invp_get_the_carfax_icon_html() );
 }
 
