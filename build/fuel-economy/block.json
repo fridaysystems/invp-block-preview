@@ -1,0 +1,23 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "create-block/invp-fuel-economy",
+	"version": "1.0.0",
+	"title": "Fuel Economy",
+	"category": "inventory-presser",
+	"icon": "admin-network",
+	"description": "Miles per gallon",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "invp-fuel-economy",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"attributes":{
+		"includeAnnualStats": {
+			"type": "boolean",
+			"default": true
+		}
+	}
+}
