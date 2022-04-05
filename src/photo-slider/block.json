@@ -16,6 +16,10 @@
 	"editorStyle": "file:./index.css",
 	"style": [ "file:./style-index.css", "flexslider" ],
 	"attributes": {
+		"renderInEditor": {
+			"type": "boolean",
+			"default": false
+		},
 		"startSlideshow": {
 			"type": "boolean",
 			"default": false

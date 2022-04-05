@@ -21,6 +21,7 @@ import {
 	CheckboxControl,
 	PanelBody,
 	PanelRow,
+	Placeholder
 } from '@wordpress/components';
 
 import { withSelect } from '@wordpress/data';
@@ -44,6 +45,10 @@ import './editor.scss';
 export default function Edit( { attributes, setAttributes } ) {
 
 	const blockProps = useBlockProps();
+
+	const toggleRenderInEditor = () => {
+		setAttributes( { renderInEditor: ! attributes.renderInEditor } )
+	}
 
 	const toggleStartSlideshow = () => {
 		setAttributes( { startSlideshow: ! attributes.startSlideshow } )
@@ -70,6 +75,19 @@ export default function Edit( { attributes, setAttributes } ) {
 				} )
 			}
 		} ) ( function( props ) {
+
+			if( ! attributes.renderInEditor )
+			{
+				return <>
+					<BlockControls></BlockControls>
+					<div { ...blockProps }>
+						<Placeholder
+							label="Photo Slider"
+							instructions="View this vehicle to see the slider."
+						></Placeholder>
+					</div>
+				</>;
+			}
 
 			// if posts found
 			if( props.posts ) {
@@ -139,6 +157,12 @@ export default function Edit( { attributes, setAttributes } ) {
 				>
 					<PanelRow>
 						<fieldset>
+						<CheckboxControl
+							label={ __( 'Render in Editor', 'invp-photo-slider' )}
+							help={ __( 'Display and start the slider in the block editor?', 'invp-photo-slider' )}
+							checked={ attributes.renderInEditor }
+							onChange={ toggleRenderInEditor }
+						/>
 						<CheckboxControl
 							label={ __( 'Automatically Cycle Slides', 'invp-photo-slider' )}
 							help={ __( 'Start rotating photos in the carousel after page load?', 'invp-photo-slider' )}

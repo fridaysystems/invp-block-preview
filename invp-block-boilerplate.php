@@ -246,8 +246,8 @@ function invp_block_register_scripts()
 		true
 	);
 }
-add_action( 'wp_enqueue_scripts', 'invp_block_register_scripts' );
-add_action( 'enqueue_block_editor_assets', 'invp_block_register_scripts' );
+add_action( 'wp_enqueue_scripts', 'invp_block_register_scripts', 20 );
+add_action( 'enqueue_block_editor_assets', 'invp_block_register_scripts', 20 );
 
 function invp_block_photo_slider_get_html( $attributes )
 {
