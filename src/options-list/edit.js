@@ -36,7 +36,7 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit( { attributes, setAttributes } ) {
+export default function Edit() {
 
 	const blockProps = useBlockProps();
 	const postType = useSelect(
@@ -53,10 +53,11 @@ export default function Edit( { attributes, setAttributes } ) {
 	return (
 		<>
 			<BlockControls></BlockControls>
-			<ul 
-				{ ...blockProps }
-				className={ `vehicle-features wp-block`}
-			>{ optionsItems }</ul>
+			<div { ...blockProps }>
+				<ul
+					className={ `vehicle-features wp-block`}
+				>{ optionsItems }</ul>
+			</div>
 		</>
 	);
 }
