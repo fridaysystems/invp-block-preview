@@ -46,7 +46,7 @@ export default function Edit() {
 	const [ meta ] = useEntityProp( 'postType', postType, 'meta' );
 
 	const optionsItems = [];
-	meta[ 'inventory_presser_options_array' ].forEach( element => {
+	meta[ invp_blocks.meta_prefix + 'options_array' ].forEach( element => {
 		optionsItems.push( <li>{ element }</li> );
 	});
 
