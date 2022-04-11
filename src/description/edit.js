@@ -47,9 +47,9 @@ export default function Edit() {
 	);
 	const [ meta, setMeta ] = useEntityProp( 'postType', postType, 'meta' );
 
-	const metaDescription = meta[ 'inventory_presser_description' ];
+	const metaDescription = meta[ invp_blocks.meta_prefix + 'description' ];
 	const updateDescriptionMetaValue = ( newValue ) => {
-		setMeta( { ...meta, inventory_presser_description: newValue } );
+		setMeta( { ...meta, [invp_blocks.meta_prefix + 'description']: newValue } );
 	};	
 
 	return (
