@@ -51,7 +51,7 @@ export default function Edit() {
 	);
 	const [ meta, setMeta ] = useEntityProp( 'postType', postType, 'meta' );
 
-	const reportUrl = '' == meta[ 'inventory_presser_carfax_url_report' ] ? 'http://www.carfax.com/VehicleHistory/p/Report.cfx?vin=' + meta[ 'inventory_presser_vin' ] : meta[ 'inventory_presser_carfax_url_report' ];
+	const reportUrl = '' == meta[ invp_blocks.meta_prefix + 'carfax_url_report' ] ? 'http://www.carfax.com/VehicleHistory/p/Report.cfx?vin=' + meta[ invp_blocks.meta_prefix + 'vin' ] : meta[ invp_blocks.meta_prefix + 'carfax_url_report' ];
 
 	function SiteUrl() {
 		const site = useSelect( ( select ) => {
@@ -65,14 +65,14 @@ export default function Edit() {
 		return site.url;
 	}
 
-	const metaCarfaxUrlIcon = meta[ 'inventory_presser_carfax_url_icon' ];
+	const metaCarfaxUrlIcon = meta[ invp_blocks.meta_prefix + 'carfax_url_icon' ];
 	const updateCarfaxUrlIconMetaValue = ( newValue ) => {
-		setMeta( { ...meta, inventory_presser_carfax_url_icon: newValue } );
+		setMeta( { ...meta, [invp_blocks.meta_prefix + 'carfax_url_icon']: newValue } );
 	};
 
 	const svgUrlLocal = SiteUrl()
 		+ '/wp-content/plugins/inventory-presser/images/show-me-carfax'
-		+ ( '1' == meta[ 'inventory_presser_carfax_one_owner' ] ? '-1-owner' : '' )
+		+ ( '1' == meta[ invp_blocks.meta_prefix + 'carfax_one_owner' ] ? '-1-owner' : '' )
 		+ '.svg';
 	const svgUrl = '' == metaCarfaxUrlIcon ? svgUrlLocal : metaCarfaxUrlIcon;
 
