@@ -83,7 +83,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					<div { ...blockProps }>
 						<Placeholder
 							label="Photo Slider"
-							instructions="View this vehicle to see the slider."
+							instructions="View this vehicle to see the slider, or check Render in Editor in this block's settings."
 						></Placeholder>
 					</div>
 				</>;
