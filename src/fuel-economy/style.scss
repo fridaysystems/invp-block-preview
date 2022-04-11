@@ -1,3 +1,8 @@
+.fuel-economy-wrapper:after {
+	content: "";
+	display: table;
+	clear: both;
+}
 .fuel-name{
 	clear: left;
 	padding: .2em 0;

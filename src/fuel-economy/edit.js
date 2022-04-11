@@ -75,32 +75,32 @@ export default function Edit( { attributes, setAttributes } ) {
 		setAttributes( { includeAnnualStats: ! attributes.includeAnnualStats } )
 	}
 
-	const metaFuel1Name = meta[ 'inventory_presser_fuel_economy_1_name' ];
+	const metaFuel1Name = meta[ invp_blocks.meta_prefix + 'fuel_economy_1_name' ];
 	const updateFuel1NameMetaValue = ( newValue ) => {
-		setMeta( { ...meta, inventory_presser_fuel_economy_1_name: newValue } );
+		setMeta( { ...meta, [invp_blocks.meta_prefix + 'fuel_economy_1_name']: newValue } );
 	};
 
-	const metaFuel1Combined = meta[ 'inventory_presser_fuel_economy_1_combined' ];
+	const metaFuel1Combined = meta[ invp_blocks.meta_prefix + 'fuel_economy_1_combined' ];
 	const updateFuel1CombinedMetaValue = ( newValue ) => {
-		setMeta( { ...meta, inventory_presser_fuel_economy_1_combined: newValue } );
+		setMeta( { ...meta, [invp_blocks.meta_prefix + 'fuel_economy_1_combined']: newValue } );
 	};
-	const metaFuel1City = meta[ 'inventory_presser_fuel_economy_1_city' ];
+	const metaFuel1City = meta[ invp_blocks.meta_prefix + 'fuel_economy_1_city' ];
 	const updateFuel1CityMetaValue = ( newValue ) => {
-		setMeta( { ...meta, inventory_presser_fuel_economy_1_city: newValue } );
+		setMeta( { ...meta, [invp_blocks.meta_prefix + 'fuel_economy_1_city']: newValue } );
 	};
-	const metaFuel1Highway = meta[ 'inventory_presser_fuel_economy_1_highway' ];
+	const metaFuel1Highway = meta[ invp_blocks.meta_prefix + 'fuel_economy_1_highway' ];
 	const updateFuel1HighwayMetaValue = ( newValue ) => {
-		setMeta( { ...meta, inventory_presser_fuel_economy_1_highway: newValue } );
+		setMeta( { ...meta, [invp_blocks.meta_prefix + 'fuel_economy_1_highway']: newValue } );
 	};
 
 	//There could be two fuel types
 	const fuelTypes = { count: 0 };
 
-	if( '' != meta[ 'inventory_presser_fuel_economy_1_city' ] )
+	if( '' != meta[ invp_blocks.meta_prefix + 'fuel_economy_1_city' ] )
 	{
 		fuelTypes.count++;
 	}
-	if( '' != meta[ 'inventory_presser_fuel_economy_2_city' ] )
+	if( '' != meta[ invp_blocks.meta_prefix + 'fuel_economy_2_city' ] )
 	{
 		fuelTypes.count++;
 	}
@@ -203,21 +203,21 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	if( attributes.includeAnnualStats )
 	{
-		const metaFuel1FiveYearSavings = meta[ 'inventory_presser_fuel_economy_1_five_year_savings' ];
+		const metaFuel1FiveYearSavings = meta[ invp_blocks.meta_prefix + 'fuel_economy_1_five_year_savings' ];
 		const updateMetaFuel1FiveYearSavings = ( newValue ) => {
-			setMeta( { ...meta, inventory_presser_fuel_economy_1_five_year_savings: newValue } );
+			setMeta( { ...meta, [invp_blocks.meta_prefix + 'fuel_economy_1_five_year_savings']: newValue } );
 		};
-		const metaFuel1AnnualConsumption = meta[ 'inventory_presser_fuel_economy_1_annual_consumption' ];
+		const metaFuel1AnnualConsumption = meta[ invp_blocks.meta_prefix + 'fuel_economy_1_annual_consumption' ];
 		const updateMetaFuel1AnnualConsumption = ( newValue ) => {
-			setMeta( { ...meta, inventory_presser_fuel_economy_1_annual_consumption: newValue } );
+			setMeta( { ...meta, [invp_blocks.meta_prefix + 'fuel_economy_1_annual_consumption']: newValue } );
 		};
-		const metaFuel1AnnualCost = meta[ 'inventory_presser_fuel_economy_1_annual_cost' ];
+		const metaFuel1AnnualCost = meta[ invp_blocks.meta_prefix + 'fuel_economy_1_annual_cost' ];
 		const updateMetaFuel1AnnualCost = ( newValue ) => {
-			setMeta( { ...meta, inventory_presser_fuel_economy_1_annual_cost: newValue } );
+			setMeta( { ...meta, [invp_blocks.meta_prefix + 'fuel_economy_1_annual_cost']: newValue } );
 		};
-		const metaFuel1AnnualEmissions = meta[ 'inventory_presser_fuel_economy_1_annual_emissions' ];
+		const metaFuel1AnnualEmissions = meta[ invp_blocks.meta_prefix + 'fuel_economy_1_annual_emissions' ];
 		const updateMetaFuel1AnnualEmissions = ( newValue ) => {
-			setMeta( { ...meta, inventory_presser_fuel_economy_1_annual_emissions: newValue } );
+			setMeta( { ...meta, [invp_blocks.meta_prefix + 'fuel_economy_1_annual_emissions']: newValue } );
 		};
 
 		controls.push(

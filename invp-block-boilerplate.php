@@ -215,7 +215,7 @@ function invp_block_fuel_economy_get_html( $attributes )
 		}
 	}
 
-	return $html;
+	return '<div class="fuel-economy-wrapper">' . $html . '</div>';
 }
 
 function invp_block_options_list_get_html( $attributes )
