@@ -82,11 +82,11 @@ export default function Edit( { attributes, setAttributes } ) {
 	//Using a term name stored in a meta field, find the matching term ID
 	const findTermID = ( metaSuffix, termsArray ) => {
 		if( ! termsArray.hasTerms 
-			|| ! meta[ 'inventory_presser_' + metaSuffix ] )
+			|| ! meta[ invp_blocks.meta_prefix + metaSuffix ] )
 		{
 			return false;
 		}
-		const term = termsArray.terms.find( term => term.name == meta[ 'inventory_presser_' + metaSuffix ]);
+		const term = termsArray.terms.find( term => term.name == meta[ invp_blocks.meta_prefix + metaSuffix ]);
 		return term ? term.id : false;
 	};
 
@@ -102,7 +102,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			return;
 		}
 		const term = terms.hasTerms && terms.terms.find(term => term.id == newValue && 0 != term.id );
-		setMeta( { ...meta, "inventory_presser_transmission": term ? term.name : '' } );
+		setMeta( { ...meta, [invp_blocks.meta_prefix + 'transmission']: term ? term.name : '' } );
 	};
 
 	const driveTypeTerms = getTerms( 'drive_type' );
@@ -113,7 +113,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			return;
 		}
 		const term = terms.hasTerms && terms.terms.find(term => term.id == newValue && 0 != term.id );
-		setMeta( { ...meta, "inventory_presser_drive_type": term ? term.name : '' } );
+		setMeta( { ...meta, [invp_blocks.meta_prefix + 'drive_type']: term ? term.name : '' } );
 	};
 
 	const fuelTerms = getTerms( 'fuel' );
@@ -124,7 +124,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			return;
 		}
 		const term = terms.hasTerms && terms.terms.find(term => term.id == newValue && 0 != term.id );
-		setMeta( { ...meta, "inventory_presser_fuel": term ? term.name : '' } );
+		setMeta( { ...meta, [invp_blocks.meta_prefix + 'fuel']: term ? term.name : '' } );
 	};
 
 	const cylindersTerms = getTerms( 'cylinders' );
@@ -135,7 +135,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			return;
 		}
 		const term = terms.hasTerms && terms.terms.find(term => term.id == newValue && 0 != term.id );
-		setMeta( { ...meta, "inventory_presser_cylinders": term ? term.name : '' } );
+		setMeta( { ...meta, [invp_blocks.meta_prefix + 'cylinders']: term ? term.name : '' } );
 	};
 
 	const bodyStyleTerms = getTerms( 'style' );
@@ -146,7 +146,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			return;
 		}
 		const term = terms.hasTerms && terms.terms.find(term => term.id == newValue && 0 != term.id );
-		setMeta( { ...meta, "inventory_presser_body_style": term ? term.name : '' } );
+		setMeta( { ...meta, [invp_blocks.meta_prefix + 'body_style']: term ? term.name : '' } );
 	};
 
 	const typeTerms = getTerms( 'type' );
@@ -157,7 +157,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			return;
 		}
 		const term = terms.hasTerms && terms.terms.find(term => term.id == newValue && 0 != term.id );
-		setMeta( { ...meta, "inventory_presser_type": term ? term.name : '' } );
+		setMeta( { ...meta, [invp_blocks.meta_prefix + 'type']: term ? term.name : '' } );
 	};
 
 	[
@@ -176,34 +176,34 @@ export default function Edit( { attributes, setAttributes } ) {
 	} );
 
 	//Odometer
-	const metaOdometerValue = meta[ 'inventory_presser_odometer' ];
+	const metaOdometerValue = meta[ invp_blocks.meta_prefix + 'odometer' ];
 	const updateOdometerMetaValue = ( newValue ) => {
 		//allow only digits
-		setMeta( { ...meta, inventory_presser_odometer: newValue.replace( /[^0-9]+/g, '' ) } );
+		setMeta( { ...meta, [invp_blocks.meta_prefix + 'odometer']: newValue.replace( /[^0-9]+/g, '' ) } );
 	};
 
 	//Color
-	const metaColorValue = meta[ 'inventory_presser_color' ];
+	const metaColorValue = meta[ invp_blocks.meta_prefix + 'color' ];
 	const updateColorMetaValue = ( newValue ) => {
-		setMeta( { ...meta, inventory_presser_color: newValue } );
+		setMeta( { ...meta, [invp_blocks.meta_prefix + 'color']: newValue } );
 	};
 
 	//Interior Color
-	const metaInteriorColorValue = meta[ 'inventory_presser_interior_color' ];
+	const metaInteriorColorValue = meta[ invp_blocks.meta_prefix + 'interior_color' ];
 	const updateInteriorColorMetaValue = ( newValue ) => {
-		setMeta( { ...meta, inventory_presser_interior_color: newValue } );
+		setMeta( { ...meta, [invp_blocks.meta_prefix + 'interior_color']: newValue } );
 	};
 
 	//Stock number
-	const metaStockNumberValue = meta[ 'inventory_presser_stock_number' ];
+	const metaStockNumberValue = meta[ invp_blocks.meta_prefix + 'stock_number' ];
 	const updateStockNumberMetaValue = ( newValue ) => {
-		setMeta( { ...meta, inventory_presser_stock_number: newValue } );
+		setMeta( { ...meta, [invp_blocks.meta_prefix + 'stock_number']: newValue } );
 	};
 
 	//VIN
-	const metaVinValue = meta[ 'inventory_presser_vin' ];
+	const metaVinValue = meta[ invp_blocks.meta_prefix + 'vin' ];
 	const updateVinMetaValue = ( newValue ) => {
-		setMeta( { ...meta, inventory_presser_vin: newValue } );
+		setMeta( { ...meta, [invp_blocks.meta_prefix + 'vin']: newValue } );
 	};	
 
 	return (
