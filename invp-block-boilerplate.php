@@ -44,6 +44,10 @@ function invp_create_blocks() {
 	register_block_type( __DIR__ . '/build/photo-slider', array(
 		'render_callback' => 'invp_block_photo_slider_get_html',
 	) );
+
+	register_block_type( __DIR__ . '/build/payment-calculator', array(
+		'render_callback' => 'invp_block_payment_calculator_get_html',
+	) );
 }
 add_action( 'init', 'invp_create_blocks' );
 
@@ -307,6 +311,53 @@ function invp_block_photo_slider_get_html( $attributes )
 
 		}
 	?></div><?php
+
+	return ob_get_clean();
+}
+
+function invp_block_payment_calculator_get_html( $attributes )
+{
+	//Need a JavaScript include wherever this block is rendered
+	wp_enqueue_script(
+		'invp-payment-calculator',
+		plugins_url( 'src/payment-calculator/payment-calculator.min.js', __FILE__ )
+	);
+
+	ob_start();
+
+	?><div id="payment_calculator">
+		<ul>
+			<li>
+				<label for="trade_amount"><?php _e( 'Cash/trade', 'invp-payment-calculator' ); ?></label>
+				<input type="text" id="trade" name="trade" onchange="pcw_go();" onkeyup="pcw_only_decimals( this ); pcw_go();" />
+			</li>
+			<li>
+				<label for="apr"><?php _e( 'APR %*', 'invp-payment-calculator' ); ?></label>
+				<input type="text" id="apr" name="apr" value="<?php echo $attributes['defaultAPR']; ?>" onchange="pcw_go();" onkeyup="pcw_only_decimals( this ); pcw_go();" />
+			</li>
+			<li>
+				<label for="term"><?php _e( 'Term', 'invp-payment-calculator' ); ?></label>
+				<select size="1" id="term" name="term" onchange="pcw_go();">
+					<option value="12" selected="selected">12 months</option>
+					<option value="18">18 months</option>
+					<option value="24">24 months</option>
+					<option value="30">30 months</option>
+					<option value="36">36 months</option>
+					<option value="42">42 months</option>
+					<option value="48">48 months</option>
+					<option value="60">60 months</option>
+					<option value="72">72 months</option>
+					<option value="84">84 months</option>
+				</select>
+			</li>
+			<li>
+				<label for="payment"><?php _e( 'Payment', 'invp-payment-calculator' ); ?></label>
+				<input type="text" id="payment" name="payment" value="$0.00" />
+			</li>
+		</ul>
+		<p><?php echo $attributes['disclaimer']; ?></p>
+		<input type="hidden" id="loan_amount" name="loan_amount" value="<?php echo invp_get_raw_price(); ?>" />
+	</div><?php
 
 	return ob_get_clean();
 }
