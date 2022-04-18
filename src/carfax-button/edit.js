@@ -84,11 +84,11 @@ export default function Edit() {
 				<BlockControls></BlockControls>
 				<Placeholder
 					{ ...blockProps }
-					label="Carfax Button"
-					instructions="No button URL saved for this vehicle. The site is configured to use Carfax-provided buttons at Vehicles → Options."
+					label={ __( 'Carfax Button', 'inventory-presser' ) }
+					instructions={ __( 'No button URL saved for this vehicle. The site is configured to use Carfax-provided buttons at Vehicles → Options.', 'inventory-presser' ) }
 				>
 					<TextControl						
-						label="Carfax Button URL"
+						label={ __( 'Carfax Button URL', 'inventory-presser' ) }
 						tagName="p"
 						onChange={ updateCarfaxUrlIconMetaValue }
 						value={ metaCarfaxUrlIcon }
@@ -111,7 +111,7 @@ export default function Edit() {
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					<img  src={ svgUrl } alt="SHOW ME THE CARFAX" />
+					<img src={ svgUrl } alt={ __( 'SHOW ME THE CARFAX', 'inventory-presser' ) } />
 				</a>
 			</div>
 		</>

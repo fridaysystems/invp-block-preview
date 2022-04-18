@@ -171,7 +171,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		//Add a "Please choose" item at the beginning so users can unset the value
 		if( termsArray.hasTerms && 0 != termsArray.terms[0].id )
 		{
-			termsArray.terms.unshift( { id: 0, name: 'Please choose' } );
+			termsArray.terms.unshift( { id: 0, name: __( 'Please choose', 'inventory-presser' ) } );
 		}
 	} );
 
@@ -210,69 +210,69 @@ export default function Edit( { attributes, setAttributes } ) {
 		<div { ...blockProps }>
 			<BlockControls></BlockControls>
 			<TextControl
-				label="Odometer"
+				label={ __( 'Odometer', 'inventory-presser' ) }
 				value={ metaOdometerValue }
 				onChange={ updateOdometerMetaValue }
 			/>
 			<SelectControl
-				label="Type"
+				label={ __( 'Type', 'inventory-presser' ) }
 				value={ typeTermID }
 				options={ typeTerms.hasTerms 
 					&& typeTerms.terms.map( term => ({ label: term.name, value: term.id }))}
 				onChange={ updateTypeMetaValue( typeTerms ) }
 			/>
 			<SelectControl
-				label="Body Style"
+				label={ __( 'Body Style', 'inventory-presser' ) }
 				value={ bodyStyleTermID }
 				options={ bodyStyleTerms.hasTerms 
 					&& bodyStyleTerms.terms.map( term => ({ label: term.name, value: term.id }))}
 				onChange={ updateBodyStyleMetaValue( bodyStyleTerms ) }
 			/>
 			<TextControl
-				label="Color"
+				label={ __( 'Color', 'inventory-presser' ) }
 				value={ metaColorValue }
 				onChange={ updateColorMetaValue }
 			/>
 			<TextControl
-				label="Interior Color"
+				label={ __( 'Interior Color', 'inventory-presser' ) }
 				value={ metaInteriorColorValue }
 				onChange={ updateInteriorColorMetaValue }
 			/>
 			<SelectControl
-				label="Cylinders"
+				label={ __( 'Cylinders', 'inventory-presser' ) }
 				value={ cylindersTermID }
 				options={ cylindersTerms.hasTerms 
 					&& cylindersTerms.terms.map( term => ({ label: term.name, value: term.id }))}
 				onChange={ updateCylindersMetaValue( cylindersTerms ) }
 			/>
 			<SelectControl
-				label="Fuel"
+				label={ __( 'Fuel', 'inventory-presser' ) }
 				value={ fuelTermID }
 				options={ fuelTerms.hasTerms 
 					&& fuelTerms.terms.map( term => ({ label: term.name, value: term.id }))}
 				onChange={ updateFuelMetaValue( fuelTerms ) }
 			/>
 			<SelectControl
-				label="Transmission"
+				label={ __( 'Transmission', 'inventory-presser' ) }
 				value={ transmissionTermID }
 				options={ transmissionTerms.hasTerms 
 					&& transmissionTerms.terms.map( term => ({ label: term.name, value: term.id }))}
 				onChange={ updateTransmissionMetaValue( transmissionTerms ) }
 			/>
 			<SelectControl
-				label="Drive Type"
+				label={ __( 'Drive Type', 'inventory-presser' ) }
 				value={ driveTypeTermID }
 				options={ driveTypeTerms.hasTerms
 					&& driveTypeTerms.terms.map( term => ({ label: term.name, value: term.id }))}
 				onChange={ updateDriveTypeMetaValue( driveTypeTerms ) }
 			/>
 			<TextControl
-				label="Stock"
+				label={ __( 'Stock', 'inventory-presser' ) }
 				value={ metaStockNumberValue }
 				onChange={ updateStockNumberMetaValue }
 			/>
 			<TextControl
-				label="VIN"
+				label={ __( 'VIN', 'inventory-presser' ) }
 				value={ metaVinValue }
 				onChange={ updateVinMetaValue }
 			/>

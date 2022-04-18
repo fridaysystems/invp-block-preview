@@ -82,8 +82,8 @@ export default function Edit( { attributes, setAttributes } ) {
 					<BlockControls></BlockControls>
 					<div { ...blockProps }>
 						<Placeholder
-							label="Photo Slider"
-							instructions="View this vehicle to see the slider, or check Render in Editor in this block's settings."
+							label={ __( 'Photo Slider', 'inventory-presser' ) }
+							instructions={ __( 'View this vehicle to see the slider, or check Render in Editor in this block\'s settings.', 'inventory-presser' ) }
 						></Placeholder>
 					</div>
 				</>;
@@ -141,7 +141,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			}
 
 			return <>
-					<h2 class="wp-block">{ `Photo Slider` }</h2><p class="wp-block">{ `Loading photos...` }</p>
+					<h2 class="wp-block">{ __( 'Photo Slider', 'inventory-presser' ) }</h2><p class="wp-block">{ __( 'Loading photos...', 'inventory-presser' ) }</p>
 					</>;
 		}	
 	);

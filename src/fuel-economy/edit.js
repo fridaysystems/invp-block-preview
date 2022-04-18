@@ -113,23 +113,23 @@ export default function Edit( { attributes, setAttributes } ) {
 				<BlockControls></BlockControls>
 				<Placeholder
 					{ ...blockProps }
-					label="Fuel Economy"
-					instructions="No miles per gallon data saved for this vehicle."
+					label={ __( 'Fuel Economy', 'inventory-presser' ) }
+					instructions={ __( 'No miles per gallon data saved for this vehicle.', 'inventory-presser' ) }
 				>
 					<TextControl						
-						label="Combined MPG"
+						label={ __( 'Combined MPG', 'inventory-presser' ) }
 						tagName="p"
 						onChange={ updateFuel1CombinedMetaValue }
 						value={ metaFuel1Combined }
 					></TextControl>
-					<TextControl						
-						label="Highway MPG"
+					<TextControl		
+						label={ __( 'Highway MPG', 'inventory-presser' ) }
 						tagName="p"
 						onChange={ updateFuel1HighwayMetaValue }
 						value={ metaFuel1Highway }
 					></TextControl>
 					<TextControl						
-						label="City MPG"
+						label={ __( 'City MPG', 'inventory-presser' ) }
 						tagName="p"
 						onChange={ updateFuel1CityMetaValue }
 						value={ metaFuel1City }
@@ -143,7 +143,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		<>
 			<div class="fuel-name">
 				<TextControl
-					label="Fuel 1 Name"
+					label={ __( 'Fuel 1 Name', 'inventory-presser' ) }
 					tagName="p"
 					onChange={ updateFuel1NameMetaValue }
 					value={ metaFuel1Name }
@@ -154,7 +154,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				<div class="fuel-economy-combined">
 					<span class="number">
 					<TextControl						
-						label="Combined MPG"
+						label={ __( 'Combined MPG', 'inventory-presser' ) }
 						tagName="p"
 						onChange={ updateFuel1CombinedMetaValue }
 						value={ metaFuel1Combined }
@@ -172,7 +172,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				<div class="fuel-economy-city">
 					<span class="number">
 					<TextControl						
-						label="City MPG"
+						label={ __( 'City MPG', 'inventory-presser' ) }
 						tagName="p"
 						onChange={ updateFuel1CityMetaValue }
 						value={ metaFuel1City }
@@ -186,7 +186,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				<div class="fuel-economy-highway">
 					<span class="number">
 					<TextControl						
-						label="City MPG"
+						label={ __( 'Highway MPG', 'inventory-presser' ) }
 						tagName="p"
 						onChange={ updateFuel1HighwayMetaValue }
 						value={ metaFuel1Highway }
