@@ -244,7 +244,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						</TextControl>
 					</li>
 				</ul>
-				<p>*{ attributes.disclaimer }</p>
+				<p>* { attributes.disclaimer }</p>
 				<input type="hidden" id="loan_amount" value={ meta[ invp_blocks.meta_prefix + 'price' ] } />
 			</div>
 		</>

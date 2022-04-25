@@ -355,11 +355,12 @@ function invp_block_payment_calculator_get_html( $attributes )
 				<input type="text" id="payment" name="payment" value="$0.00" />
 			</li>
 		</ul>
-		<p><?php echo $attributes['disclaimer']; ?></p>
+		<p>* <?php echo $attributes['disclaimer']; ?></p>
 		<input type="hidden" id="loan_amount" name="loan_amount" value="<?php echo invp_get_raw_price(); ?>" />
 	</div><?php
 
-	return ob_get_clean();
+	$html = ob_get_clean();
+	return $html;
 }
 
 function invp_block_attribute_table_get_html( $attributes )
