@@ -48,8 +48,212 @@ function invp_create_blocks() {
 	register_block_type( __DIR__ . '/build/payment-calculator', array(
 		'render_callback' => 'invp_block_payment_calculator_get_html',
 	) );
+
+	//Callbacks for blocks in core that edit meta values but do not have output
+	register_block_type( 'inventory-presser/body-style', array(
+		'render_callback' => 'invp_block_get_the_body_style',
+	) );
+
+	register_block_type( 'inventory-presser/color', array(
+		'render_callback' => 'invp_block_get_the_color',
+	) );
+
+	register_block_type( 'inventory-presser/down-payment', array(
+		'render_callback' => 'invp_block_get_the_down_payment',
+	) );
+
+	register_block_type( 'inventory-presser/engine', array(
+		'render_callback' => 'invp_block_get_the_engine',
+	) );
+
+	register_block_type( 'inventory-presser/interior-color', array(
+		'render_callback' => 'invp_block_get_the_interior_color',
+	) );
+
+	register_block_type( 'inventory-presser/last-modified', array(
+		'render_callback' => 'invp_block_get_the_last_modified',
+	) );
+
+	register_block_type( 'inventory-presser/make', array(
+		'render_callback' => 'invp_block_get_the_make',
+	) );
+
+	register_block_type( 'inventory-presser/model', array(
+		'render_callback' => 'invp_block_get_the_model',
+	) );
+
+	register_block_type( 'inventory-presser/msrp', array(
+		'render_callback' => 'invp_block_get_the_msrp',
+	) );
+
+	register_block_type( 'inventory-presser/odometer', array(
+		'render_callback' => 'invp_block_get_the_odometer',
+	) );
+
+	register_block_type( 'inventory-presser/payment', array(
+		'render_callback' => 'invp_block_get_the_payment',
+	) );
+
+	register_block_type( 'inventory-presser/payment-frequency', array(
+		'render_callback' => 'invp_block_get_the_payment_frequency',
+	) );
+
+	register_block_type( 'inventory-presser/price', array(
+		'render_callback' => 'invp_block_get_the_price',
+	) );
+
+	register_block_type( 'inventory-presser/stock-number', array(
+		'render_callback' => 'invp_block_get_the_stock_number',
+	) );
+
+	register_block_type( 'inventory-presser/title-status', array(
+		'render_callback' => 'invp_block_get_the_title_status',
+	) );
+
+	register_block_type( 'inventory-presser/transmission-speeds', array(
+		'render_callback' => 'invp_block_get_the_transmission_speeds',
+	) );
+
+	register_block_type( 'inventory-presser/trim', array(
+		'render_callback' => 'invp_block_get_the_trim',
+	) );
+
+	register_block_type( 'inventory-presser/vin', array(
+		'render_callback' => 'invp_block_get_the_vin',
+	) );
+
+	register_block_type( 'inventory-presser/year', array(
+		'render_callback' => 'invp_block_get_the_year',
+	) );
+
+	register_block_type( 'inventory-presser/youtube', array(
+		'render_callback' => 'invp_block_get_the_youtube',
+	) );
 }
 add_action( 'init', 'invp_create_blocks' );
+
+function invp_block_template_tag_handler( $template_tag, $attributes )
+{
+	//Does the template tag even exist?
+	if( ! is_callable( $template_tag ) )
+	{
+		return '';
+	}
+
+	//Does this post have a value coming out of the template tag?
+	$value = $template_tag();
+	if( empty( $value ) )
+	{
+		return '';
+	}
+
+	return sprintf(
+		'<span%s>%s</span>',
+		empty( $attributes['className'] ) ? '' : ' class="' . esc_attr( $attributes['className'] ) . '"',
+		$value
+	);
+}
+
+function invp_block_get_the_body_style( $attributes )
+{
+	return invp_block_template_tag_handler( 'invp_get_the_body_style', $attributes );
+}
+
+function invp_block_get_the_color( $attributes )
+{
+	return invp_block_template_tag_handler( 'invp_get_the_color', $attributes );
+}
+
+function invp_block_get_the_down_payment( $attributes )
+{
+	return invp_block_template_tag_handler( 'invp_get_the_down_payment', $attributes );
+}
+
+function invp_block_get_the_engine( $attributes )
+{
+	return invp_block_template_tag_handler( 'invp_get_the_engine', $attributes );
+}
+
+function invp_block_get_the_interior_color( $attributes )
+{
+	return invp_block_template_tag_handler( 'invp_get_the_interior_color', $attributes );
+}
+
+function invp_block_get_the_last_modified( $attributes )
+{
+	return invp_block_template_tag_handler( 'invp_get_the_last_modified', $attributes );
+}
+
+function invp_block_get_the_make( $attributes )
+{
+	return invp_block_template_tag_handler( 'invp_get_the_make', $attributes );
+}
+
+function invp_block_get_the_model( $attributes )
+{
+	return invp_block_template_tag_handler( 'invp_get_the_model', $attributes );
+}
+
+function invp_block_get_the_msrp( $attributes )
+{
+	return invp_block_template_tag_handler( 'invp_get_the_msrp', $attributes );
+}
+
+function invp_block_get_the_price( $attributes )
+{
+	return invp_block_template_tag_handler( 'invp_get_the_price', $attributes );
+}
+
+function invp_block_get_the_odometer( $attributes )
+{
+	return invp_block_template_tag_handler( 'invp_get_the_odometer', $attributes );
+}
+
+function invp_block_get_the_payment( $attributes )
+{
+	return invp_block_template_tag_handler( 'invp_get_the_payment', $attributes );
+}
+
+function invp_block_get_the_payment_frequency( $attributes )
+{
+	return invp_block_template_tag_handler( 'invp_get_the_payment_frequency', $attributes );
+}
+
+function invp_block_get_the_stock_number( $attributes )
+{
+	return invp_block_template_tag_handler( 'invp_get_the_stock_number', $attributes );
+}
+
+function invp_block_get_the_title_status( $attributes )
+{
+	return invp_block_template_tag_handler( 'invp_get_the_title_status', $attributes );
+}
+
+function invp_block_get_the_transmission_speeds( $attributes )
+{
+	return invp_block_template_tag_handler( 'invp_get_the_transmission_speeds', $attributes );
+}
+
+function invp_block_get_the_trim( $attributes )
+{
+	return invp_block_template_tag_handler( 'invp_get_the_trim', $attributes );
+}
+
+function invp_block_get_the_vin( $attributes )
+{
+	return invp_block_template_tag_handler( 'invp_get_the_vin', $attributes );
+}
+
+function invp_block_get_the_year( $attributes )
+{
+	return invp_block_template_tag_handler( 'invp_get_the_year', $attributes );
+}
+
+function invp_block_get_the_youtube( $attributes )
+{
+	return invp_block_template_tag_handler( 'invp_get_the_youtube', $attributes );
+}
+
 
 function invp_block_carfax_button_get_html( $attributes )
 {
