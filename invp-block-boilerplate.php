@@ -541,18 +541,19 @@ function invp_block_payment_calculator_get_html( $attributes )
 			</li>
 			<li>
 				<label for="term"><?php _e( 'Term', 'invp-payment-calculator' ); ?></label>
-				<select size="1" id="term" name="term" onchange="pcw_go();">
-					<option value="12" selected="selected">12 months</option>
-					<option value="18">18 months</option>
-					<option value="24">24 months</option>
-					<option value="30">30 months</option>
-					<option value="36">36 months</option>
-					<option value="42">42 months</option>
-					<option value="48">48 months</option>
-					<option value="60">60 months</option>
-					<option value="72">72 months</option>
-					<option value="84">84 months</option>
-				</select>
+				<select size="1" id="term" name="term" onchange="pcw_go();"><?php
+					$terms = [ 12, 18, 24, 30, 36, 42, 48, 60, 72, 84 ];
+					foreach( $terms as $term )
+					{
+						printf( 
+							'<option value="%s"%s>%s %s</option>',
+							$term,
+							selected( $attributes['defaultTerm'], $term, false ),
+							$term,
+							__( 'months', 'inventory-presser' )
+						);
+					}
+				?></select>
 			</li>
 			<li>
 				<label for="payment"><?php _e( 'Payment', 'invp-payment-calculator' ); ?></label>

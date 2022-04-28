@@ -56,7 +56,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	const [ meta, setMeta ] = useEntityProp( 'postType', postType, 'meta' );
 	
 	const updateDefaultAPR = ( newValue ) => {
-		setAttributes( { defaultAPR: newValue.replace( /[^0-9\.]+/g, '' ) } )
+		setAttributes( { defaultAPR: parseFloat( newValue.replace( /[^0-9\.]+/g, '' ) ) } )
 	}
 
 	const changeTradeValue = ( newValue ) => {
@@ -91,15 +91,8 @@ export default function Edit( { attributes, setAttributes } ) {
 			payment_factor =  ( 1 - 1 / Math.pow( ( 1 + apr ), term ) ) / apr;
 		}
 
-		console.log( amount_financed );
-		console.log( attributes );
-		console.log( 'term: ' + term );
-		console.log( payment_factor );
-	
 		var raw = Math.round( ( amount_financed - trade ) / payment_factor * 100 ) / 100;
-		console.log( raw );
 		var payment = pcw_format_currency( raw );
-		console.log( payment );
 		return payment;
 	}
 
@@ -119,14 +112,8 @@ export default function Edit( { attributes, setAttributes } ) {
 			payment_factor =  ( 1 - 1 / Math.pow( ( 1 + apr ), term ) ) / apr;
 		}
 
-		console.log( amount_financed );
-		console.log( attributes );
-		console.log( payment_factor );
-	
 		var raw = Math.round( ( amount_financed - trade ) / payment_factor * 100 ) / 100;
-		console.log( raw );
 		var payment = pcw_format_currency( raw );
-		console.log( payment );
 		return payment;
 	}
 
