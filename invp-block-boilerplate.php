@@ -49,6 +49,10 @@ function invp_create_blocks() {
 		'render_callback' => 'invp_block_payment_calculator_get_html',
 	) );
 
+	register_block_type( __DIR__ . '/build/hours-today', array(
+		'render_callback' => 'invp_block_hours_today_get_html',
+	) );
+
 	//Callbacks for blocks in core that edit meta values but do not have output
 	register_block_type( 'inventory-presser/body-style', array(
 		'render_callback' => 'invp_block_get_the_body_style',
@@ -424,6 +428,31 @@ function invp_block_fuel_economy_get_html( $attributes )
 	}
 
 	return '<div class="fuel-economy-wrapper">' . $html . '</div>';
+}
+
+function invp_block_hours_today_get_html( $attributes )
+{
+	if( empty( $attributes['location'] )
+		|| ! class_exists( 'Inventory_Presser_Shortcode_Hours_Today' ) )
+	{
+		return '';
+	}
+
+	$shortcode = new Inventory_Presser_Shortcode_Hours_Today();
+
+	$term = get_term( $attributes['location'], 'location' );
+	if( empty( $term->slug ) )
+	{
+		return '';
+	}
+
+	$hours_sets = $shortcode->find_hours_sets_by_location_slug( $term->slug );
+	if( ! empty( $attributes['hoursUid'] ) )
+	{
+		$hours_sets[0] = $shortcode->find_hours_set_by_uid( $attributes['hoursUid'] );
+	}
+	$days = $shortcode->create_days_array_from_hours_array( $hours_sets[0] );
+	return $shortcode->create_sentence( $days );
 }
 
 function invp_block_options_list_get_html( $attributes )

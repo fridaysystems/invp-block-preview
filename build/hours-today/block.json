@@ -1,0 +1,26 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "create-block/invp-hours-day",
+	"version": "1.0.0",
+	"title": "Hours Today",
+	"category": "inventory-presser",
+	"icon": "schedule",
+	"description": "A sentence describing the car lot's hours today or the next day it is open",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "invp-hours-day",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"attributes": {
+		"location": {
+			"type": "integer",
+			"default": 0
+		},
+		"hoursUid": {
+			"type": "string"
+		}
+	}
+}
