@@ -452,7 +452,11 @@ function invp_block_hours_today_get_html( $attributes )
 		$hours_sets[0] = $shortcode->find_hours_set_by_uid( $attributes['hoursUid'] );
 	}
 	$days = $shortcode->create_days_array_from_hours_array( $hours_sets[0] );
-	return $shortcode->create_sentence( $days );
+	return sprintf( 
+		'<span%s>%s</span>',
+		empty( $attributes['className'] ) ? '' : ' class="' . $attributes['className'] . '"',
+		$shortcode->create_sentence( $days )
+	);
 }
 
 function invp_block_options_list_get_html( $attributes )
