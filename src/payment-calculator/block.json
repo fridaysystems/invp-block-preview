@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "create-block/invp-payment-calculator",
+	"name": "inventory-presser/invp-payment-calculator",
 	"version": "1.0.0",
 	"title": "Payment Calculator",
 	"category": "inventory-presser",

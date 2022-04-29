@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "create-block/invp-description",
+	"name": "inventory-presser/invp-description",
 	"version": "1.0.0",
 	"title": "Vehicle Description",
 	"category": "inventory-presser",

@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "create-block/invp-carfax-button",
+	"name": "inventory-presser/invp-carfax-button",
 	"version": "1.0.0",
 	"title": "Carfax Button",
 	"category": "inventory-presser",

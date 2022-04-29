@@ -16,7 +16,7 @@ import save from './save';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType('create-block/invp-carfax-button', {
+registerBlockType('inventory-presser/invp-carfax-button', {
 	/**
 	 * @see ./edit.js
 	 */

@@ -25,7 +25,7 @@ import save from './save';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType('create-block/invp-fuel-economy', {
+registerBlockType('inventory-presser/invp-fuel-economy', {
 	/**
 	 * @see ./edit.js
 	 */

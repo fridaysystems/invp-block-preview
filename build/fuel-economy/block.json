@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "create-block/invp-fuel-economy",
+	"name": "inventory-presser/invp-fuel-economy",
 	"version": "1.0.0",
 	"title": "Fuel Economy",
 	"category": "inventory-presser",

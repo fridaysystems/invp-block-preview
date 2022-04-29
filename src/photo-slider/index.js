@@ -25,7 +25,7 @@ import save from './save';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType('create-block/invp-photo-slider', {
+registerBlockType('inventory-presser/invp-photo-slider', {
 	/**
 	 * @see ./edit.js
 	 */

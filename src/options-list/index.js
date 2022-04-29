@@ -25,7 +25,7 @@ import save from './save';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType('create-block/invp-options-list', {
+registerBlockType('inventory-presser/invp-options-list', {
 	/**
 	 * @see ./edit.js
 	 */
