@@ -53,6 +53,10 @@ function invp_create_blocks() {
 		'render_callback' => 'invp_block_hours_today_get_html',
 	) );
 
+	register_block_type( __DIR__ . '/build/iframe', array(
+		'render_callback' => 'invp_block_iframe_get_html',
+	) );
+
 	//Callbacks for blocks in core that edit meta values but do not have output
 	register_block_type( 'inventory-presser/body-style', array(
 		'render_callback' => 'invp_block_get_the_body_style',
@@ -457,6 +461,15 @@ function invp_block_hours_today_get_html( $attributes )
 		empty( $attributes['className'] ) ? '' : ' class="' . $attributes['className'] . '"',
 		$shortcode->create_sentence( $days )
 	);
+}
+
+function invp_block_iframe_get_html( $attributes )
+{
+	$attributes['class'] = $attributes['className'] ?? '';
+	unset( $attributes['className'] );
+
+	$shortcode = new Inventory_Presser_Shortcode_Iframe();
+	return $shortcode->content( $attributes );
 }
 
 function invp_block_options_list_get_html( $attributes )

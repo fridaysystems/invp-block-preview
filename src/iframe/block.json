@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "inventory-presser/invp-iframe",
+	"version": "1.0.0",
+	"title": "Iframe",
+	"category": "inventory-presser",
+	"icon": "admin-page",
+	"description": "Creates a responsive iframe.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "invp-iframe",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"attributes": {
+		"src": {
+			"type": "string"
+		},
+		"width": {
+			"type": "string",
+			"default": "100%"
+		},
+		"height": {
+			"type": "string",
+			"default": "5000px"
+		},
+		"scrolling": {
+			"type": "string"
+		}
+	}
+}
