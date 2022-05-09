@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "inventory-presser/invp-hours-day",
+	"name": "inventory-presser/invp-hours-today",
 	"version": "1.0.0",
 	"title": "Hours Today",
 	"category": "inventory-presser",
@@ -10,7 +10,7 @@
 	"supports": {
 		"html": false
 	},
-	"textdomain": "invp-hours-day",
+	"textdomain": "invp-hours-today",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",

@@ -16,7 +16,7 @@ import save from './save';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType('inventory-presser/invp-hours-day', {
+registerBlockType('inventory-presser/invp-hours-today', {
 	/**
 	 * @see ./edit.js
 	 */
