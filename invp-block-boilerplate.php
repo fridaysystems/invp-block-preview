@@ -57,6 +57,11 @@ function invp_create_blocks() {
 		'render_callback' => 'invp_block_iframe_get_html',
 	) );
 
+	register_block_type( __DIR__ . '/build/phone-number', array(
+		'render_callback' => 'invp_block_phone_number_get_html',
+	) );
+
+
 	//Callbacks for blocks in core that edit meta values but do not have output
 	register_block_type( 'inventory-presser/body-style', array(
 		'render_callback' => 'invp_block_get_the_body_style',
@@ -488,6 +493,118 @@ function invp_block_options_list_get_html( $attributes )
 	}
 
 	return apply_filters( 'invp_block_options_list', $html . '</ul>' );
+}
+
+function invp_block_phone_number_get_html( $attributes )
+{
+	if( empty( $attributes['location'] ) )
+	{
+		return '';
+	}
+
+	$term = get_term( $attributes['location'], 'location' );
+	if( empty( $term->slug ) )
+	{
+		return '';
+	}
+
+	$formats = array(
+		'small_left_label' => array(
+			'selector'    => __( 'Small, left label', 'inventory-presser' ),
+			'uses_labels' => true,
+			'before'      => '<table>',
+			'repeater'    => '<tr><th>%1$s</th><td class="phone-link"><a href="tel:+%2$s">%3$s</a></td><tr>',
+			'after'       => '</table>',
+		),
+		'large_no_label' => array(
+			'selector'    => __( 'Large, no label', 'inventory-presser' ),
+			'uses_labels' => false,
+			'before'      => '',
+			'repeater'    => '<h2><a href="tel:+%1$s">%2$s</a></h2>',
+			'after'       => '',
+		),
+		'large_table_left' => array(
+			'selector'    => __( 'Large tabled, left label', 'inventory-presser' ),
+			'uses_labels' => true,
+			'before'      => '<table>',
+			'repeater'    => '<tr><th>%1$s</th><td class="phone-link"><a href="tel:+%2$s">%3$s</a></td><tr>',
+			'after'       => '</table>',
+		),
+		'large_left_label' => array(
+			'selector'    => __( 'Large, small left label', 'inventory-presser' ),
+			'uses_labels' => true,
+			'before'      => '<table>',
+			'repeater'    => '<tr><th>%1$s</th><td><h2><a href="tel:+%2$s">%3$s</a></h2></td><tr>',
+			'after'       => '</table>',
+		),
+		'large_right_label' => array(
+			'selector'    => __( 'Large, small right label', 'inventory-presser' ),
+			'uses_labels' => true,
+			'before'      => '<table>',
+			'repeater'    => '<tr><td><h2><a href="tel:+%2$s">%3$s</a></h2></td><th>%1$s</th><tr>',
+			'after'       => '</table>',
+		),
+		'single_line_labels' => array(
+			'selector'    => __( 'Single line with labels', 'inventory-presser' ),
+			'uses_labels' => true,
+			'before'      => '',
+			'repeater'    => '<span>%1$s:</span> <a href="tel:+%2$s">%3$s</a>',
+			'after'       => '',
+		),
+		'single_line_no_labels' => array(
+			'selector'    => __( 'Single line no labels', 'inventory-presser' ),
+			'uses_labels' => false,
+			'before'      => '',
+			'repeater'    => '<span><a href="tel:+%1$s">%2$s</a></span>',
+			'after'       => '',
+		),
+	);
+
+	$html = '';
+	if( ! empty( $formats[$attributes['format']]['before'] ) )
+	{
+		$html .= $formats[$attributes['format']]['before'];
+	}
+
+	for( $p=1; $p<=INVP::LOCATION_MAX_PHONES; $p++ )
+	{
+		$phone_uid = get_term_meta( $attributes['location'], 'phone_' . $p . '_uid', true );
+		if( ! $phone_uid )
+		{
+			break;
+		}
+
+		//There is a phone number is slot $p, should this block to display it?
+		if( in_array( $phone_uid, $attributes['phoneUids'] ) )
+		{
+			//Yes, output this number
+			$number = get_term_meta( $attributes['location'], 'phone_' . $p . '_number', true );
+			if( $formats[$attributes['format']]['uses_labels'] )
+			{
+				$html .= sprintf(
+					$formats[$attributes['format']]['repeater'],
+					get_term_meta( $attributes['location'], 'phone_' . $p . '_description', true ),
+					INVP::prepare_phone_number_for_link( $number ),
+					$number
+				);
+			}
+			else
+			{
+				$html .= sprintf(
+					$formats[$attributes['format']]['repeater'],
+					INVP::prepare_phone_number_for_link( $number ),
+					$number
+				);
+			}
+		}
+	}
+
+	if( ! empty( $formats[$attributes['format']]['before'] ) )
+	{
+		$html .= $formats[$attributes['format']]['before'];
+	}
+
+	return $html;
 }
 
 function invp_block_register_scripts()
