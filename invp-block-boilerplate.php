@@ -61,6 +61,9 @@ function invp_create_blocks() {
 		'render_callback' => 'invp_block_phone_number_get_html',
 	) );
 
+	register_block_type( __DIR__ . '/build/address', array(
+		'render_callback' => 'invp_block_address_get_html',
+	) );
 
 	//Callbacks for blocks in core that edit meta values but do not have output
 	register_block_type( 'inventory-presser/body-style', array(
@@ -267,6 +270,34 @@ function invp_block_get_the_youtube( $attributes )
 	return invp_block_template_tag_handler( 'invp_get_the_youtube', $attributes );
 }
 
+
+function invp_block_address_get_html( $attributes )
+{
+	if( empty( $attributes['location'] ) )
+	{
+		return '';
+	}
+
+	$term = get_term( $attributes['location'], 'location' );
+	if( empty( $term->slug ) )
+	{
+		return '';
+	}
+
+	if( $attributes['singleLine'] )
+	{
+		$html = sprintf(
+			'<span>%s</span>',
+			str_replace( PHP_EOL, ', ', trim( $term->description ) )
+		);
+	}
+	else
+	{
+		$html = sprintf( '<div>%</div>', nl2br( $term->description ) );
+	}
+
+	return $html;
+}
 
 function invp_block_carfax_button_get_html( $attributes )
 {
