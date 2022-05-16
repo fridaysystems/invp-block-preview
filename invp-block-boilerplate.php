@@ -286,6 +286,11 @@ function invp_block_carfax_button_get_html( $attributes )
 
 function invp_block_description_get_html( $attributes )
 {
+	if( ! function_exists( 'invp_get_the_description' ) )
+	{
+		return '';
+	}
+
 	$description = invp_get_the_description();
 	if( empty( $description ) )
 	{
