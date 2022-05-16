@@ -135,7 +135,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		<>
 			<InspectorControls>
 				<PanelBody 
-					title={ __( 'Payment Calculator Settings', 'invp-payment-calculator' )}
+					title={ __( 'Settings', 'invp-payment-calculator' )}
 					initialOpen={true}
 				>
 					<PanelRow>

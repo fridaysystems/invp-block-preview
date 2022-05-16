@@ -152,7 +152,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		<div { ...blockProps }>
 			<InspectorControls>
 				<PanelBody 
-					title={ __( 'Photo Slider Settings', 'invp-photo-slider' )}
+					title={ __( 'Settings', 'invp-photo-slider' )}
 					initialOpen={true}
 				>
 					<PanelRow>

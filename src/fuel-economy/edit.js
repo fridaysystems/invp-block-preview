@@ -279,7 +279,7 @@ export default function Edit( { attributes, setAttributes } ) {
 			<BlockControls></BlockControls>
 			<InspectorControls>
 				<PanelBody 
-					title={ __( 'Fuel Economy Settings', 'inventory-presser' )}
+					title={ __( 'Settings', 'inventory-presser' )}
 					initialOpen={true}
 				>
 					<PanelRow>
