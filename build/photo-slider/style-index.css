@@ -1,1 +1,68 @@
-.invp-flexslider{background:none;border:0;margin-bottom:0;position:relative}.invp-flexslider .flex-direction-nav a{bottom:0;color:#fff;height:100%;margin:0;opacity:1;top:0;transition:none;width:15%}.invp-flexslider .flex-direction-nav a:before{color:#fff;text-shadow:-1px 0 #666,0 1px #666,1px 0 #666,0 -1px #666}.invp-flexslider:hover .flex-direction-nav .flex-next,.invp-flexslider:hover .flex-direction-nav .flex-prev{opacity:1}.invp-flexslider ul.flex-direction-nav li{line-height:1}.invp-flexslider-thumbs ul.flex-direction-nav li{line-height:100px}.invp-flexslider .flex-direction-nav a:focus{outline:none}.invp-flexslider.flex-direction-nav .flex-next,.invp-flexslider:hover .flex-direction-nav .flex-next{padding-right:.5em;right:0}.invp-flexslider .flex-direction-nav .flex-prev,.invp-flexslider:hover .flex-direction-nav .flex-prev{left:0;padding-left:.5em}.invp-flexslider .slides img{cursor:pointer}.invp-flexslider .flex-viewport{transition:all .2s ease}
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/photo-slider/style.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+.invp-flexslider {
+  margin-bottom: 0;
+  border: 0;
+  background: none;
+  position: relative;
+}
+
+.invp-flexslider .flex-direction-nav a {
+  width: 15%;
+  top: 0;
+  bottom: 0;
+}
+
+.invp-flexslider .flex-direction-nav a {
+  height: 100%;
+  transition: none;
+  opacity: 1;
+  color: #fff;
+  margin: 0;
+}
+
+.invp-flexslider .flex-direction-nav a:before {
+  color: #fff;
+  text-shadow: -1px 0 #666, 0 1px #666, 1px 0 #666, 0 -1px #666;
+}
+
+.invp-flexslider:hover .flex-direction-nav .flex-prev,
+.invp-flexslider:hover .flex-direction-nav .flex-next {
+  opacity: 1;
+}
+
+.invp-flexslider ul.flex-direction-nav li {
+  line-height: 1;
+}
+
+.invp-flexslider-thumbs ul.flex-direction-nav li {
+  line-height: 100px;
+}
+
+.invp-flexslider .flex-direction-nav a:focus {
+  outline: none;
+}
+
+.invp-flexslider.flex-direction-nav .flex-next,
+.invp-flexslider:hover .flex-direction-nav .flex-next {
+  right: 0;
+  padding-right: 0.5em;
+}
+
+.invp-flexslider .flex-direction-nav .flex-prev,
+.invp-flexslider:hover .flex-direction-nav .flex-prev {
+  left: 0;
+  padding-left: 0.5em;
+}
+
+.invp-flexslider .slides img {
+  cursor: pointer;
+}
+
+/* speed up animation when the next and previous buttons move */
+.invp-flexslider .flex-viewport {
+  transition: all 0.2s ease;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

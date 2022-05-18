@@ -1,0 +1,1 @@
+{"version":3,"file":"address/index.css","mappings":";;;AAAA;EACC;AACD;;AACA;EACC;AAED,C","sources":["webpack://invp-block-boilerplate/./src/address/editor.scss"],"sourcesContent":[".wp-block-inventory-presser-invp-address{\n\tpadding: 8px;\n}\n.wp-block-inventory-presser-invp-address ul.addressUids{\n\tlist-style: none;\n}"],"names":[],"sourceRoot":""}

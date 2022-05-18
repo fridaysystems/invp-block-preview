@@ -1,0 +1,1 @@
+{"version":3,"file":"carfax-button/index.css","mappings":";;;AAAA;EACC;AACD,C","sources":["webpack://invp-block-boilerplate/./src/carfax-button/editor.scss"],"sourcesContent":[".carfax-wrapper{\n\tpadding: 8px;\n}"],"names":[],"sourceRoot":""}

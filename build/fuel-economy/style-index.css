@@ -1,1 +1,164 @@
-.fuel-economy-wrapper:after{clear:both;content:"";display:table}.fuel-name{clear:left;padding:.2em 0}.fuel-economy-fuel{-ms-grid-columns:5.5em 4em 25% 25%;-ms-grid-rows:99% 2em;display:-ms-grid;display:grid;float:left;grid-template-columns:5.5em 4em 25% 25%;grid-template-rows:99% 2em;max-width:45%;min-width:280px}.fuel-economy-city,.fuel-economy-highway{vertical-align:bottom}.fuel-economy-city,.fuel-economy-combined,.fuel-economy-fuel .mpg,.fuel-economy-highway{font-size:150%;font-weight:700}.fuel-economy-fuel tr.context td{font-size:90%}.fuel-economy-city,.fuel-economy-combined,.fuel-economy-fuel .mpg,.fuel-economy-fuel tr.context td{text-align:center}.fuel-economy-combined{-ms-grid-column-span:1;-ms-grid-row-span:1;font-size:450%;-ms-grid-column:1;grid-column-end:2;grid-column-start:1;-ms-grid-row:1;grid-row-end:2;grid-row-start:1;line-height:95%}.fuel-economy-combined-label{-ms-grid-column-span:1;-ms-grid-column:1;grid-column-end:2;grid-column-start:1}.fuel-economy-fuel .mpg{-ms-grid-column-span:1;-ms-grid-row-span:2;-ms-grid-column:2;grid-column-end:3;grid-column-start:2;-ms-grid-row:1;grid-row-end:3;grid-row-start:1}.fuel-pump-img,svg.fuel-pump{height:50px;margin:0 auto;width:55px}.fuel-economy-city,.fuel-economy-city-label{-ms-grid-column-span:1;-ms-grid-column:3;grid-column-end:4;grid-column-start:3}.fuel-economy-highway,.fuel-economy-highway-label{-ms-grid-column-span:1;-ms-grid-column:4;grid-column-end:5;grid-column-start:4}.fuel-economy-city,.fuel-economy-highway{-ms-grid-row-span:1;-ms-grid-row:1;grid-row-end:2;grid-row-start:1;position:relative}.fuel-economy-city-label,.fuel-economy-combined-label,.fuel-economy-highway-label{-ms-grid-row-span:1;-ms-grid-row:2;grid-row-end:3;grid-row-start:2;text-align:center}.fuel-economy-highway-label{text-align:left}.fuel-economy-city span,.fuel-economy-highway span{bottom:0;left:0;position:absolute;right:0}dl.fuel-economy-annual-stats{display:inline-block;margin:0;max-width:50%;min-width:280px;padding-left:3em;width:99%}dl.fuel-economy-annual-stats dt{clear:left;float:left;max-width:100%;width:23em}dl.fuel-economy-annual-stats dd{float:left;font-weight:700;margin:0}dl.fuel-economy-annual-stats dd,dl.fuel-economy-annual-stats dt{margin-bottom:.5em}
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/fuel-economy/style.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+.fuel-economy-wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.fuel-name {
+  clear: left;
+  padding: 0.2em 0;
+}
+
+.fuel-economy-fuel {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 5.5em 4em 25% 25%;
+  grid-template-columns: 5.5em 4em 25% 25%;
+  -ms-grid-rows: 99% 2em;
+  grid-template-rows: 99% 2em;
+  min-width: 280px;
+  max-width: 45%;
+  float: left;
+}
+
+.fuel-economy-highway,
+.fuel-economy-city {
+  vertical-align: bottom;
+}
+
+.fuel-economy-combined,
+.fuel-economy-city,
+.fuel-economy-highway,
+.fuel-economy-fuel .mpg {
+  font-weight: bold;
+  font-size: 150%;
+}
+
+.fuel-economy-fuel tr.context td {
+  font-size: 90%;
+}
+
+.fuel-economy-combined,
+.fuel-economy-city,
+.fuel-economy-fuel tr.context td,
+.fuel-economy-fuel .mpg {
+  text-align: center;
+}
+
+.fuel-economy-combined {
+  font-size: 450%;
+  line-height: 95%;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  -ms-grid-column-span: 1;
+  grid-column-end: 2;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  -ms-grid-row-span: 1;
+  grid-row-end: 2;
+}
+
+.fuel-economy-combined-label {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  -ms-grid-column-span: 1;
+  grid-column-end: 2;
+}
+
+.fuel-economy-fuel .mpg {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  -ms-grid-column-span: 1;
+  grid-column-end: 3;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  -ms-grid-row-span: 2;
+  grid-row-end: 3;
+}
+
+svg.fuel-pump,
+.fuel-pump-img {
+  width: 55px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+.fuel-economy-city,
+.fuel-economy-city-label {
+  -ms-grid-column: 3;
+      grid-column-start: 3;
+  -ms-grid-column-span: 1;
+  grid-column-end: 4;
+}
+
+.fuel-economy-highway,
+.fuel-economy-highway-label {
+  -ms-grid-column: 4;
+      grid-column-start: 4;
+  -ms-grid-column-span: 1;
+  grid-column-end: 5;
+}
+
+.fuel-economy-city,
+.fuel-economy-highway {
+  position: relative;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  -ms-grid-row-span: 1;
+  grid-row-end: 2;
+}
+
+.fuel-economy-combined-label,
+.fuel-economy-city-label,
+.fuel-economy-highway-label {
+  text-align: center;
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  -ms-grid-row-span: 1;
+  grid-row-end: 3;
+}
+
+.fuel-economy-highway-label {
+  text-align: left;
+}
+
+.fuel-economy-city span,
+.fuel-economy-highway span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Annual stats */
+dl.fuel-economy-annual-stats {
+  display: inline-block;
+  min-width: 280px;
+  max-width: 50%;
+  padding-left: 3em;
+  margin: 0;
+  width: 99%;
+}
+
+dl.fuel-economy-annual-stats dt {
+  float: left;
+  clear: left;
+  width: 23em;
+  max-width: 100%;
+}
+
+dl.fuel-economy-annual-stats dd {
+  font-weight: bold;
+  float: left;
+  margin: 0;
+}
+
+dl.fuel-economy-annual-stats dt,
+dl.fuel-economy-annual-stats dd {
+  margin-bottom: 0.5em;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

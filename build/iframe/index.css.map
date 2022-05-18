@@ -1,0 +1,1 @@
+{"version":3,"file":"iframe/index.css","mappings":";;;AAAA;EACC;AACD,C","sources":["webpack://invp-block-boilerplate/./src/iframe/editor.scss"],"sourcesContent":[".wp-block-inventory-presser-invp-iframe fieldset.components-placeholder__fieldset{\n\tflex-direction: column;\n}"],"names":[],"sourceRoot":""}
