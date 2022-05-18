@@ -645,6 +645,7 @@ function invp_block_phone_number_get_html( $attributes )
 
 function invp_block_register_scripts()
 {
+	//Photo slider block uses flexslider
 	wp_register_script( 
 		'invp-flexslider-block',
 		plugins_url( '/src/photo-slider/photo-slider.min.js', __FILE__ ),
