@@ -1,1 +1,0 @@
-{"version":3,"file":"phone-number/index.css","mappings":";;;AAAA;EACC;AACD;;AACA;EACC;AAED,C","sources":["webpack://invp-block-boilerplate/./src/phone-number/editor.scss"],"sourcesContent":[".wp-block-inventory-presser-invp-phone-number{\n\tpadding: 8px;\n}\n.wp-block-inventory-presser-invp-phone-number ul.phoneUids{\n\tlist-style: none;\n}"],"names":[],"sourceRoot":""}

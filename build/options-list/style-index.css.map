@@ -1,1 +1,0 @@
-{"version":3,"file":"options-list/style-index.css","mappings":";;;AAAA;EACC;OAAA;EACA;OAAA;AACD;;AACA;EACC;OAAA;AAED,C","sources":["webpack://invp-block-boilerplate/./src/options-list/style.scss"],"sourcesContent":["ul.vehicle-features {\n\tcolumns: 3;\n\tcolumn-gap: 1em;\n}\nul.vehicle-features li {\n\tbreak-inside: avoid;\n}"],"names":[],"sourceRoot":""}
