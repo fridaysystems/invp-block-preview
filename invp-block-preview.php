@@ -8,7 +8,7 @@
  * Author:            Corey Salzano
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       invp-block-boilerplate
+ * Text Domain:       invp-block-preview
  *
  * @package           create-block
  */
@@ -63,6 +63,10 @@ function invp_create_blocks() {
 
 	register_block_type( __DIR__ . '/build/address', array(
 		'render_callback' => 'invp_block_address_get_html',
+	) );
+
+	register_block_type( __DIR__ . '/build/map', array(
+		'render_callback' => 'invp_block_map_get_html',
 	) );
 
 	//Callbacks for blocks in core that edit meta values but do not have output
@@ -513,6 +517,108 @@ function invp_block_iframe_get_html( $attributes )
 	return $shortcode->content( $attributes );
 }
 
+function invp_block_map_get_html( $attributes )
+{
+	invp_block_register_scripts();
+
+	//abort if we don't have an address to show
+	if( empty( $attributes['locations'] ) )
+	{
+		return '';
+	}
+
+	if( ! class_exists( 'INVP' ) )
+	{
+		return '';
+	}
+
+	//abort if we do not have a mapbox.com API token
+	$settings = INVP::settings();
+	if( empty( $settings['mapbox_public_token'] ) )
+	{
+		return '';
+	}
+
+	//Continue even if this is empty so the map gets rendered
+	$popups = invp_block_map_popups( $attributes );
+
+	//Enqueue leaflet.js scripts and styles
+	$handle = 'invp-leaflet';
+	if( ! wp_script_is( $handle ) )
+	{
+		wp_enqueue_script( $handle );
+	}
+	if( ! wp_style_is( $handle ) )
+	{
+		wp_enqueue_style( $handle );
+	}
+
+	/**
+	 * Include the JavaScript file that powers the map.
+	 * If there are two Map blocks on the same page, we need to avoid the
+	 * second one redefining the same invp_maps constant because that will
+	 * produce a JavaScript error.
+	 */
+	$handle = 'invp-maps';
+	if( ! wp_script_is( $handle ) )
+	{
+		//First instance of the map on the page
+		wp_enqueue_script( $handle );
+	}
+
+	return sprintf( '<div class="invp-map %1$s" id="%1$s-inner"></div>', $attributes['blockId'] );
+}
+
+/**
+ * invp_block_map_popups
+ * 
+ * Creates an array of car lots ready to be plotted on an instance of the map
+ * block
+ *
+ * @param  array $attributes Block attributes
+ * @return array
+ */
+function invp_block_map_popups( $attributes )
+{
+	$location_terms = get_terms( array(
+		'hide_empty' => false,
+		'include'       => $attributes['locations'],
+		'taxonomy'   => 'location',
+	) );
+	if( ! $location_terms )
+	{
+		//there are no dealership addresses stored in this site
+		return [];
+	}
+
+	/**
+	 * Create an array that contains the data needed to create the markers 
+	 * and popups: location names, addresses, and lat lon coords
+	 */
+	$popups = array();
+	for( $t=0; $t<sizeof( $location_terms ); $t++ )
+	{
+		$popup = new stdClass();
+
+		//Location title/dealership name
+		$popup->name = $location_terms[$t]->name;
+		//Address
+		$popup->address = str_replace( "\r", '', str_replace( PHP_EOL, '<br />', $location_terms[$t]->description ) );
+		//Unique block ID
+		$popup->blockId = $attributes['blockId'];
+		//Get the latitude and longitude coordinates for this address
+		$location = INVP::fetch_latitude_and_longitude( $location_terms[$t]->term_id );
+		if( false !== $location )
+		{
+			$popup->coords = new stdClass();
+			$popup->coords->lat = $location->lat;
+			$popup->coords->lon = $location->lon;
+			$popups[] = $popup;
+		}			
+	}
+	return $popups;
+}
+
 function invp_block_options_list_get_html( $attributes )
 {
 	$options_array = invp_get_the_options();
@@ -643,19 +749,71 @@ function invp_block_phone_number_get_html( $attributes )
 	return $html;
 }
 
+/**
+ * invp_block_register_scripts
+ * 
+ * 
+ * ██████╗ ███████╗ ██████╗ ██╗███████╗████████╗███████╗██████╗     ███████╗ ██████╗██████╗ ██╗██████╗ ████████╗███████╗
+ * ██╔══██╗██╔════╝██╔════╝ ██║██╔════╝╚══██╔══╝██╔════╝██╔══██╗    ██╔════╝██╔════╝██╔══██╗██║██╔══██╗╚══██╔══╝██╔════╝
+ * ██████╔╝█████╗  ██║  ███╗██║███████╗   ██║   █████╗  ██████╔╝    ███████╗██║     ██████╔╝██║██████╔╝   ██║   ███████╗
+ * ██╔══██╗██╔══╝  ██║   ██║██║╚════██║   ██║   ██╔══╝  ██╔══██╗    ╚════██║██║     ██╔══██╗██║██╔═══╝    ██║   ╚════██║
+ * ██║  ██║███████╗╚██████╔╝██║███████║   ██║   ███████╗██║  ██║    ███████║╚██████╗██║  ██║██║██║        ██║   ███████║
+ * ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝    ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝        ╚═╝   ╚══════╝
+ *
+ * http://www.patorjk.com/software/taag/#p=display&f=ANSI%20Shadow&t=Register%20scripts
+ * 
+ * @return void
+ */
 function invp_block_register_scripts()
 {
 	//Photo slider block uses flexslider
-	wp_register_script( 
-		'invp-flexslider-block',
-		plugins_url( '/src/photo-slider/photo-slider.min.js', __FILE__ ),
-		array( 'jquery', 'invp-flexslider' ),
-		false,
-		true
-	);
+	$handle = 'invp-flexslider-block';
+	if( ! wp_script_is( $handle, 'registered' ) )
+	{
+		wp_register_script( 
+			$handle,
+			plugins_url( '/src/photo-slider/photo-slider.min.js', __FILE__ ),
+			array( 'jquery', 'invp-flexslider', 'wp-element', 'wp-blocks', 'wp-components', 'wp-i18n' ),
+			false,
+			true
+		);
+	}
+
+	//Map block uses leaflet.js
+	$handle_leaflet = 'invp-leaflet';
+	if( ! wp_script_is( $handle_leaflet, 'registered' ) )
+	{
+		wp_register_script( 
+			$handle_leaflet,
+			plugins_url( '/src/map/leaflet/leaflet.js', __FILE__ ),
+			array( 'wp-element', 'wp-blocks', 'wp-components', 'wp-i18n' ),
+		);
+	}
+	if( ! wp_style_is( $handle_leaflet, 'registered' ) )
+	{
+		wp_register_style(
+			$handle_leaflet,
+			plugins_url( '/src/map/leaflet/leaflet.min.css', __FILE__ ),
+			array( 'wp-element', 'wp-blocks', 'wp-components', 'wp-i18n' ),
+		);
+	}
+	$handle_map = 'invp-maps';
+	if( ! wp_script_is( $handle_map, 'registered' ) )
+	{
+		wp_register_script( 
+			$handle_map,
+			plugins_url( '/src/map/map.min.js', __FILE__ ),
+			array( $handle_leaflet )
+		);
+
+		$settings = INVP::settings();
+		wp_add_inline_script( $handle_map, 'window.invp_maps = ' . json_encode( array(
+			'mapbox_public_token' => $settings['mapbox_public_token'] ?? '',
+		) ), 'before' );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'invp_block_register_scripts', 20 );
-add_action( 'enqueue_block_editor_assets', 'invp_block_register_scripts', 20 );
+add_action( 'enqueue_block_editor_assets', 'invp_block_register_scripts', );
 
 function invp_block_photo_slider_get_html( $attributes )
 {

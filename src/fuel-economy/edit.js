@@ -17,11 +17,6 @@ import {
 	InspectorControls,
 } from '@wordpress/block-editor';
 
-// import {
-// 	Placeholder,
-// 	TextControl
-// } from '@wordpress/components';
-
 //Needed to access post meta
 import { useSelect } from '@wordpress/data';
 import { useEntityProp } from '@wordpress/core-data';

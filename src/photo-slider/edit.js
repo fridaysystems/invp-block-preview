@@ -108,10 +108,6 @@ export default function Edit( { attributes, setAttributes } ) {
 							srcsets.push( `${urlPath}${post.media_details.sizes[key].file} ${post.media_details.sizes[key].width}w` );
 						});
 	
-						//where does 720px in sizes come from?
-						//image_constrain_size_for_editor( 1024, 682, 'large' )
-						//global $content_width;
-	
 						const imageElement = <img
 							src={ imageUrl }
 							className={ ( 'thumb' == size ? 'attachment-thumb size-thumb' : 'attachment-large size-large' ) + 'invp-image' }
