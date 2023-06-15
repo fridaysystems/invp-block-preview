@@ -1,31 +1,31 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 2,
-	"name": "inventory-presser/invp-phone-number",
-	"version": "1.0.0",
-	"title": "Phone Number",
-	"category": "inventory-presser",
-	"icon": "phone",
-	"description": "Displays a phone number from the locations taxonomy",
-	"supports": {
-		"html": false
-	},
-	"textdomain": "invp-phone-number",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css",
-	"attributes": {
-		"location": {
-			"type": "integer",
-			"default": 0
-		},
-		"phoneUids": {
-			"type": "array",
-			"default": []
-		},
-		"format": {
-			"type": "string",
-			"default": "small_left_label"
-		}
-	}
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "inventory-presser/invp-phone-number",
+  "version": "1.0.0",
+  "title": "Phone Number",
+  "category": "inventory-presser",
+  "icon": "phone",
+  "description": "Displays a phone number from the locations taxonomy",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "invp-phone-number",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "location": {
+      "type": "integer",
+      "default": 0
+    },
+    "phoneUids": {
+      "type": "array",
+      "default": []
+    },
+    "format": {
+      "type": "string",
+      "default": "small_left_label"
+    }
+  }
 }

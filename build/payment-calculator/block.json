@@ -1,40 +1,40 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 2,
-	"name": "inventory-presser/invp-payment-calculator",
-	"version": "1.0.0",
-	"title": "Payment Calculator",
-	"category": "inventory-presser",
-	"icon": "calculator",
-	"description": "Simple interest loan calculator",
-	"supports": {
-		"html": false
-	},
-	"textdomain": "invp-payment-calculator",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css",
-	"attributes": {
-		"defaultAPR": {
-			"type": "number",
-			"default": 8
-		},
-		"defaultTerm": {
-			"type": "integer",
-			"default": 60
-		},
-		"disclaimer": {
-			"type": "string",
-			"default": "Actual APR may vary"
-		},
-		"trade": {
-			"type": "number"
-		},
-		"apr": {
-			"type": "number"
-		},
-		"payment": {
-			"type": "number"
-		}
-	}
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "inventory-presser/invp-payment-calculator",
+  "version": "1.0.0",
+  "title": "Payment Calculator",
+  "category": "inventory-presser",
+  "icon": "calculator",
+  "description": "Simple interest loan calculator",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "invp-payment-calculator",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "defaultAPR": {
+      "type": "number",
+      "default": 8
+    },
+    "defaultTerm": {
+      "type": "integer",
+      "default": 60
+    },
+    "disclaimer": {
+      "type": "string",
+      "default": "Actual APR may vary"
+    },
+    "trade": {
+      "type": "number"
+    },
+    "apr": {
+      "type": "number"
+    },
+    "payment": {
+      "type": "number"
+    }
+  }
 }

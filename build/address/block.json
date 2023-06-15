@@ -1,27 +1,27 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 2,
-	"name": "inventory-presser/invp-address",
-	"version": "1.0.0",
-	"title": "Address",
-	"category": "inventory-presser",
-	"icon": "location",
-	"description": "Displays an address from the locations taxonomy",
-	"supports": {
-		"html": false
-	},
-	"textdomain": "invp-address",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css",
-	"attributes": {
-		"locations": {
-			"type": "array",
-			"default": []
-		},
-		"singleLine": {
-			"type": "boolean",
-			"default": false
-		}
-	}
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "inventory-presser/invp-address",
+  "version": "1.0.0",
+  "title": "Address",
+  "category": "inventory-presser",
+  "icon": "location",
+  "description": "Displays an address from the locations taxonomy",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "invp-address",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "locations": {
+      "type": "array",
+      "default": []
+    },
+    "singleLine": {
+      "type": "boolean",
+      "default": false
+    }
+  }
 }

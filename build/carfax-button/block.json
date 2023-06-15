@@ -1,17 +1,17 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 2,
-	"name": "inventory-presser/invp-carfax-button",
-	"version": "1.0.0",
-	"title": "Carfax Button",
-	"category": "inventory-presser",
-	"icon": "button",
-	"description": "Carfax vehicle history report button",
-	"supports": {
-		"html": false
-	},
-	"textdomain": "invp-carfax-button",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css"
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "inventory-presser/invp-carfax-button",
+  "version": "1.0.0",
+  "title": "Carfax Button",
+  "category": "inventory-presser",
+  "icon": "button",
+  "description": "Carfax vehicle history report button",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "invp-carfax-button",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
 }

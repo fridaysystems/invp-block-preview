@@ -1,32 +1,35 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 2,
-	"name": "inventory-presser/invp-photo-slider",
-	"version": "1.0.0",
-	"title": "Photo Slider",
-	"category": "inventory-presser",
-	"icon": "images-alt2",
-	"description": "Displays a single vehicle's photos in a carousel",
-	"supports": {
-		"html": false
-	},
-	"textdomain": "invp-photo-slider",
-	"editorScript": "file:./index.js",
-	"script": "invp-flexslider-block",
-	"editorStyle": "file:./index.css",
-	"style": [ "file:./style-index.css", "flexslider" ],
-	"attributes": {
-		"renderInEditor": {
-			"type": "boolean",
-			"default": false
-		},
-		"startSlideshow": {
-			"type": "boolean",
-			"default": false
-		},
-		"showThumbnails": {
-			"type": "boolean",
-			"default": true
-		}
-	}
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "inventory-presser/invp-photo-slider",
+  "version": "1.0.0",
+  "title": "Photo Slider",
+  "category": "inventory-presser",
+  "icon": "images-alt2",
+  "description": "Displays a single vehicle's photos in a carousel",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "invp-photo-slider",
+  "editorScript": "file:./index.js",
+  "script": "invp-flexslider-block",
+  "editorStyle": "file:./index.css",
+  "style": [
+    "file:./style-index.css",
+    "flexslider"
+  ],
+  "attributes": {
+    "renderInEditor": {
+      "type": "boolean",
+      "default": false
+    },
+    "startSlideshow": {
+      "type": "boolean",
+      "default": false
+    },
+    "showThumbnails": {
+      "type": "boolean",
+      "default": true
+    }
+  }
 }

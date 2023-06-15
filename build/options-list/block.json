@@ -1,17 +1,17 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 2,
-	"name": "inventory-presser/invp-options-list",
-	"version": "1.0.0",
-	"title": "Options List",
-	"category": "inventory-presser",
-	"icon": "admin-network",
-	"description": "Lists standard, optional, and aftermarket vehicle equipment",
-	"supports": {
-		"html": false
-	},
-	"textdomain": "invp-options-list",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css"
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "inventory-presser/invp-options-list",
+  "version": "1.0.0",
+  "title": "Options List",
+  "category": "inventory-presser",
+  "icon": "admin-network",
+  "description": "Lists standard, optional, and aftermarket vehicle equipment",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "invp-options-list",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
 }
